@@ -1,5 +1,10 @@
-import Example from 'components/Example';
+import FormLoginPassword from 'components/FormLoginPassword';
+import Auth from 'templates/Auth';
 
 export default function Home() {
-  return <Example />;
+  return (
+    <Auth>
+      <FormLoginPassword title="Painel Administrativo" />
+    </Auth>
+  );
 }
