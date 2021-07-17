@@ -100,5 +100,5 @@ export const Input = styled.input`
 export const Error = styled.div`
   text-align: left;
   color: var(--color-26);
-  margin-top: -1.5rem;
+  margin-top: -0.7rem;
 `;
