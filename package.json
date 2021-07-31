@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "codegen": "apollo codegen:generate --target=typescript --excludes=node_modules/ --includes=src/graphql/**/*.ts --localSchemaFile ./src/graphql/schema.gql --tagName=gql --outputFlat ./src/graphql/generated",
+    "codegen": "apollo codegen:generate --target=typescript --excludes=node_modules/ --includes=src/graphql/**/*.ts --localSchemaFile=./src/graphql/schema.gql --tagName=gql --outputFlat ./src/graphql/generated",
     "cypress": "cypress run",
     "cypress:chrome": "cypress run -b chrome",
     "cypress:open": "cypress open",
@@ -60,7 +60,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^15.0.2",
     "@types/nprogress": "^0.2.0",
-    "@types/react": "^17.0.11",
+    "@types/react": "^17.0.15",
     "@types/styled-components": "^5.1.10",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.1",
