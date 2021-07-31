@@ -2,6 +2,8 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { User, LockAlt } from '@styled-icons/boxicons-solid';
 import Link from 'next/link';
+import { signIn } from 'next-auth/client';
+import { useRouter } from 'next/router';
 
 import { signInValidate } from '../../utils/validations';
 import LoginTextField from 'components/LoginTextField';
@@ -17,22 +19,30 @@ type FormProps = {
 const FormLoginPassword = ({ title }: FormProps) => {
   const [formError, setFormError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const routes = useRouter();
+  const { push, query } = routes;
 
   const { handleSubmit, errors, touched, setFieldValue } = useFormik({
-    initialValues: {
-      email: '',
-      password: ''
-    },
+    initialValues: { email: '', password: '' },
     validationSchema: signInValidate,
-    onSubmit: v => {
+    onSubmit: async values => {
       setFormError('');
       setLoading(true);
 
-      setTimeout(() => {
-        setLoading(false);
-      }, 3000);
+      const result = await signIn('credentials', {
+        ...values,
+        redirect: false,
+        callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
+      });
 
-      console.log('values', v);
+      await setTimeout(() => 2000);
+
+      if (result?.url) return push('/home');
+
+      setLoading(false);
+
+      /** verifying if exist error */
+      if (result?.error) setFormError(result.error);
     }
   });
 
@@ -42,10 +52,10 @@ const FormLoginPassword = ({ title }: FormProps) => {
 
   return (
     <>
-      {!!formError && <div>Error Tratar informação ...</div>}
       <form onSubmit={handleSubmit}>
         <S.Logo src="/img/icon-yu.png"></S.Logo>
         <S.Title>{title}</S.Title>
+        {!!formError && <S.Error>{formError}</S.Error>}
         <LoginTextField
           type="text"
           title="informe um e-mail"
