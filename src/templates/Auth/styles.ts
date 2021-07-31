@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import media from 'styled-media-query';
+import media from 'styles/media';
 
 export const Wave = styled.img`
   position: fixed;
@@ -8,7 +8,7 @@ export const Wave = styled.img`
   height: 100%;
   z-index: -1;
 
-  ${media.lessThan('large')`
+  ${media.lessThan(1270)`
     display: none;
   `}
 `;
@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  ${media.lessThan('large')`
+  ${media.lessThan('xl')`
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -36,7 +36,7 @@ export const BannerWrapper = styled.div`
 export const Banner = styled.img`
   width: 500px;
 
-  ${media.lessThan('large')`
+  ${media.lessThan('xl')`
     display: none;
   `}
 `;
@@ -50,11 +50,11 @@ export const FormWrapper = styled.div`
   form {
     width: 500px;
 
-    ${media.lessThan('medium')`
+    ${media.lessThan('md')`
       width: 400px;
     `}
 
-    ${media.lessThan('small')`
+    ${media.lessThan('sm')`
       width: 250px;
     `}
   }

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import media from 'styled-media-query';
+
+import media from 'styles/media';
 
 export const ForgotPassword = styled.div`
   text-align: right;
@@ -8,10 +9,19 @@ export const ForgotPassword = styled.div`
   cursor: pointer;
   margin-top: -1rem;
   padding-bottom: 1rem;
+  font-size: 1rem;
 
   &:hover {
     color: var(--color-13);
   }
+
+  ${media.lessThan('md')`
+    font-size: 0.9rem;
+  `}
+
+  ${media.lessThan('sm')`
+    font-size: 0.8rem;
+  `}
 `;
 
 export const Logo = styled.img`
@@ -24,7 +34,17 @@ export const Title = styled.h2`
   font-weight: bolder;
   text-transform: uppercase;
 
-  ${media.lessThan('medium')`
-    font-size: 1.2rem;
+  ${media.lessThan('md')`
+    font-size: 1rem;
   `}
+
+  ${media.lessThan('sm')`
+    font-size: 0.8rem;
+  `}
+`;
+
+export const Error = styled.h2`
+  padding-bottom: 1rem;
+  font-weight: bolder;
+  color: var(--color-26);
 `;

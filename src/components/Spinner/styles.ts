@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Circle = styled.div`
-  width: 1rem;
-  height: 1rem;
+  width: 0.7rem;
+  height: 0.7rem;
   border-radius: 50%;
   margin: 0.1rem;
   background-color: var(--background-2);

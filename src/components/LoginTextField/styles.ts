@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styles/media';
 
 import { TextFieldProps } from '.';
 
@@ -70,16 +71,32 @@ export const Title = styled.h5<InputProps>`
   top: 50%;
   transform: translateY(-50%);
   color: var(--color-12);
-  font-size: 18px;
+  font-size: 1.2rem;
   transition: 0.3s;
 
   ${props =>
     props.focus === true &&
     `
     top: -6px;
-    font-size: 15px;
+    font-size: 1rem;
     color: var(--color-13);
     font-weight: bold;
+
+    ${media.lessThan('md')`
+      font-size: 0.8rem;
+    `}
+
+    ${media.lessThan('sm')`
+      font-size: 0.8rem;
+    `}
+  `}
+
+  ${media.lessThan('md')`
+    font-size: 1rem;
+  `}
+
+  ${media.lessThan('sm')`
+    font-size: 0.9rem;
   `}
 `;
 
@@ -101,4 +118,12 @@ export const Error = styled.div`
   text-align: left;
   color: var(--color-26);
   margin-top: -0.7rem;
+
+  ${media.lessThan('md')`
+    font-size: 0.9rem;
+  `}
+
+  ${media.lessThan('sm')`
+    font-size: 0.65rem;
+  `}
 `;

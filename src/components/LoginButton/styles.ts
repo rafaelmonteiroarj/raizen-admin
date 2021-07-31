@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styles/media';
 
 export const Wrapper = styled.button`
   display: block;
@@ -19,4 +20,12 @@ export const Wrapper = styled.button`
   &:disabled {
     opacity: 0.65;
   }
+
+  ${media.lessThan('md')`
+    font-size: 1rem;
+  `}
+
+  ${media.lessThan('sm')`
+    font-size: 0.9rem;
+  `}
 `;
