@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "codegen": "apollo codegen:generate --target=typescript --excludes=node_modules/ --includes=src/graphql/**/*.ts --localSchemaFile ./src/graphql/schema.gql --tagName=gql --outputFlat ./src/graphql/generated",
+    "codegen": "apollo codegen:generate --target=typescript --excludes=node_modules/ --includes=src/graphql/**/*.ts --localSchemaFile=./src/graphql/schema.gql --tagName=gql --outputFlat ./src/graphql/generated",
     "cypress": "cypress run",
     "cypress:chrome": "cypress run -b chrome",
     "cypress:open": "cypress open",
@@ -52,7 +52,7 @@
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-knobs": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
-    "@storybook/react": "^6.3.0",
+    "@storybook/react": "^6.3.6",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@types/classnames": "^2.3.1",
