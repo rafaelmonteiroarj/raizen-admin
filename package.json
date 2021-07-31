@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "codegen": "apollo codegen:generate --target=typescript --excludes=node_modules/ --includes=src/graphql/**/*.ts --localSchemaFile ./src/graphql/schema.gql --tagName=gql --outputFlat ./src/graphql/generated",
+    "codegen": "apollo codegen:generate --target=typescript --excludes=node_modules/ --includes=src/graphql/**/*.ts --localSchemaFile=./src/graphql/schema.gql --tagName=gql --outputFlat ./src/graphql/generated",
     "cypress": "cypress run",
     "cypress:chrome": "cypress run -b chrome",
     "cypress:open": "cypress open",
