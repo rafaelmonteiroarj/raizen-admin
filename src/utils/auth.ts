@@ -1,6 +1,5 @@
 import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/client';
-import axios from 'axios';
 import { Operation } from '@apollo/client';
 
 import api from './api';
@@ -52,7 +51,7 @@ export const authenticate = async ({ email, password }: AuthorizeProps) => {
 export const refreshToken = async (operation: Operation): Promise<void> => {
   const { headers: oldHeaders } = operation.getContext();
 
-  const response = await axios.post(`/graphql`, {
+  const response = await api.post(`/graphql`, {
     query: `mutation ($token: String!) {
         refreshToken(token: $token) {
         user { id, name, email }
@@ -65,6 +64,9 @@ export const refreshToken = async (operation: Operation): Promise<void> => {
   });
 
   const { data: res, status } = response;
+
+  console.log('data', res);
+  console.log('status', status);
 
   /** checking if exist error */
   if (res.errors) throw new Error(res.errors[0].message);
