@@ -40,7 +40,7 @@ function App({ Component, pageProps }: AppProps) {
       <AuthProvider session={pageProps.session}>
         <ApolloProvider client={client}>
           <Head>
-            <title>Boilerplate React - Raizen Tecnology</title>
+            <title>Boilerplate Nextjs</title>
             <link rel="shortcut icon" href="/img/icon-512.png" />
             <link rel="apple-touch-icon" href="/img/icon-512.png" />
             <link rel="manifest" href="/manifest.json" />
