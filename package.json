@@ -11,7 +11,7 @@
     "generate": "yarn plop --plopfile generators/plopfile.js",
     "lint": "eslint src --max-warnings=10",
     "test:unit": "jest --runInBand",
-    "schema:download": "apollo client:download-schema --endpoint=http://localhost:3002/graphql ./src/graphql/schema.gql",
+    "schema:download": "apollo client:download-schema --endpoint=https://tela-preta.herokuapp.com/graphql ./src/graphql/schema.gql",
     "start": "next start",
     "start:dev": "next dev",
     "storybook": "start-storybook -p 6006 -s public",
